@@ -7,5 +7,5 @@ import java.util.List;
 public interface IUser {
 
     public List<User> getAllUsers();
-    public User isloggedIn(String email, String password);
+    public User onlineUser(String email,String password);
 }

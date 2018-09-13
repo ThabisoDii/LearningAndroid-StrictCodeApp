@@ -1,5 +1,6 @@
 package com.example.academy_intern.stric_code.implementation;
 
+import com.example.academy_intern.stric_code.functionality.Validation;
 import com.example.academy_intern.stric_code.interfaces.IUser;
 import com.example.academy_intern.stric_code.models.User;
 
@@ -7,10 +8,10 @@ import java.util.ArrayList;
 
 public class DataSource implements IUser {
 
-    public  ArrayList<User> listUsers = new ArrayList<> ();
+    public  static ArrayList<User> listUsers = new ArrayList<> ();
 
     public DataSource(){
-        init();
+
     }
 
 
@@ -36,18 +37,11 @@ public class DataSource implements IUser {
 
         return listUsers;
     }
-    public User isloggedIn(String email, String password){
+    public User onlineUser(String email,String password){
 
         User user = null;
+        user = Validation.validateCreditals(email,password);
 
-        for(int x = 0;x < listUsers.size();x++){
-            String validEmail = listUsers.get(x).getEmail();
-            String validPassword = listUsers.get(x).getPassword();
-
-            if(email.equalsIgnoreCase(validEmail) && password.equals(validPassword)){
-                user = listUsers.get(x);
-            }
-        }
 
         return user;
     }

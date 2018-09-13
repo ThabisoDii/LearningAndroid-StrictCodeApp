@@ -73,9 +73,10 @@ public class fragmentLogin extends Fragment {
                 String password = (etPassword = view.findViewById(R.id.etPassword)).getText().toString();
 
                 DataSource dataSource = new DataSource();
-                User user = dataSource.isloggedIn(email,password);
-
                 dataSource.init();
+                User user = dataSource.onlineUser(email,password);
+
+
 
                 if(user != null){
 
@@ -89,7 +90,7 @@ public class fragmentLogin extends Fragment {
 
 
                 }else{
-                    Toast.makeText(getActivity(),"Couldn't login,please try again",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"User not registered",Toast.LENGTH_LONG).show();
                 }
             }
         });

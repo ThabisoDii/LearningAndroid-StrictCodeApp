@@ -46,7 +46,7 @@ public class User extends Person {
     public String toString() {
         return
                 "Name : '" + getName() + '\'' +
-                ", role : " + role + '\'';
+                ", role : " + role +  '\'';
     }
 
 }

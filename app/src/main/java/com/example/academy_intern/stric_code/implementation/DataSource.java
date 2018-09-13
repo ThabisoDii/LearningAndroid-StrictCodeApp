@@ -50,7 +50,7 @@ public class DataSource implements IUser {
         String output = "";
         //init();
         for(int x = 0;x < listUsers.size();x++){
-            output += listUsers.get(x).getName()+" "+listUsers.get(x).getSurname()+"\n";
+            output += listUsers.get(x).getName()+" "+listUsers.get(x).getSurname()+" "+ listUsers.get(x).getRole() + "\n";
         }
 
         return output;

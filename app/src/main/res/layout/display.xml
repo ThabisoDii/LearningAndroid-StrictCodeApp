@@ -8,13 +8,17 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/diplayLayout">
+        android:id="@+id/diplayLayout"
+        android:background="@drawable/dsply">
 
         <TextView
             android:id="@+id/txtDisplay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:text=""
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center" />
 
     </RelativeLayout>
 

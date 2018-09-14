@@ -18,6 +18,7 @@ import com.example.academy_intern.stric_code.models.User;
 public class fragmentLogin extends Fragment {
     View view;
     Button btnLogin;
+    EditText etEmail,etPassword;
 
 
     @Nullable
@@ -28,37 +29,6 @@ public class fragmentLogin extends Fragment {
     }
 
 
-    /*public void login(View view){
-
-
-        EditText etEmail,etPassword;
-        String email = (etEmail = view.findViewById(R.id.etEmail)).getText().toString();
-        String password = (etPassword = view.findViewById(R.id.etPassword)).getText().toString();
-
-        DataSource dataSource = new DataSource();
-        User user = dataSource.isloggedIn(email,password);
-
-        dataSource.init();
-
-        if(user != null){
-
-            String name = user.getName();
-            Toast.makeText(getActivity(),"Welcome "+name,Toast.LENGTH_LONG).show();
-
-            //Intent intent = new Intent(this,DisplayUsers.class);
-            //startActivity(intent);
-            //getFragmentManager().beginTransaction().replace(R.id.mainId, new fragmentDisplay()).commit();
-            // view.setVisibility();
-
-
-        }else{
-            Toast.makeText(getActivity(),"Couldn't login,please try again",Toast.LENGTH_LONG).show();
-        }
-
-        //Intent intent = new Intent(this,);
-
-    }*/
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -68,32 +38,34 @@ public class fragmentLogin extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText etEmail,etPassword;
+
                 String email = (etEmail = view.findViewById(R.id.etEmail)).getText().toString();
                 String password = (etPassword = view.findViewById(R.id.etPassword)).getText().toString();
 
                 DataSource dataSource = new DataSource();
-                User user = dataSource.isloggedIn(email,password);
-
                 dataSource.init();
+                User user = dataSource.onlineUser(email,password);
+
+
+
+
 
                 if(user != null){
 
                     String name = user.getName();
                     Toast.makeText(getActivity(),"Welcome "+name,Toast.LENGTH_LONG).show();
 
-                    //Intent intent = new Intent(this,DisplayUsers.class);
-                    //startActivity(intent);
+
                    getFragmentManager().beginTransaction().replace(R.id.mainId, new fragmentDisplay()).commit();
-                    // view.setVisibility();
 
 
                 }else{
-                    Toast.makeText(getActivity(),"Couldn't login,please try again",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"User not registered",Toast.LENGTH_LONG).show();
                 }
+
+
             }
         });
-
 
     }
 
